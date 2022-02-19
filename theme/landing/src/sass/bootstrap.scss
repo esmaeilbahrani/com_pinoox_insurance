@@ -1,0 +1,34 @@
+//this file used to customize bootstrap
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// 2. Include any default variable overrides here
+$primary: #3B95EC;
+$secondary: #D8EDFF;
+$accent: #1F486A;
+$purple: #6600FF;
+$success: #26b070;
+$danger: #dc3548;
+$body-bg: #fafcff;
+
+
+$theme-colors: (
+        "primary": $primary,
+        "danger": $danger
+);
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    color: #fff !important;
+    background: $value;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba($value, 0.4)!important;
+  }
+}
+
+
+/* finally, import Bootstrap */
+@import "~bootstrap/scss/bootstrap";
+

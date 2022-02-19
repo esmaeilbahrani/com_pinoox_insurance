@@ -1,0 +1,59 @@
+@menubarHeight: 44px;
+
+.main .toolbar-tabs {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  position: fixed;
+  z-index: 99;
+  top: @menubarHeight;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  .boxShadow();
+
+  &::-webkit-scrollbar-track {
+    box-shadow: none !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    outline: none !important;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .item {
+    color: @textColor2;
+    display: block;
+    padding: 15px 15px;
+    font-size: 1em;
+    min-width: 110px;
+    text-align: center;
+    border-left: 1px solid #dedede;
+    height: @toolbarHeight/2;
+    .trans;
+
+    &.status {
+      min-width: 160px !important;
+    }
+
+    &.active {
+      background: fade(@secondaryColor, 10%);
+      font-weight: bold;
+      color: @secondaryColor;
+    }
+
+    &:hover:not(&.status) {
+      .trans;
+      cursor: pointer;
+      background: fade(@secondaryColor, 20%);
+      color: @secondaryColor;
+    }
+  }
+}

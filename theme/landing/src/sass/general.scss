@@ -1,0 +1,374 @@
+$--padding-content-sides: 10%;
+$--padding-content: $--padding-content-sides;
+
+html {
+  scroll-padding-top: 250px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IRANSans', sans-serif;
+  background: $body-bg;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+.box-shadow {
+  box-shadow: 0 0 15px 5px rgba($accent, 0.12);
+
+}
+
+.card {
+  @extend .box-shadow;
+  border: none;
+  background: #fff;
+  border-radius: 20px;
+  padding: 10px;
+
+}
+
+.btn-round {
+  border-radius: 2rem !important;
+}
+
+.btn {
+  min-width: 150px !important;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.container {
+  padding: $--padding-content;
+}
+
+.page {
+  .arts {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    z-index: -1;
+
+    .circle {
+      max-width: 500px;
+      position: relative;
+
+      &.circle1 {
+        left: -120px;
+        bottom: -50px;
+      }
+
+      &.circle2 {
+        left: -80px;
+      }
+    }
+  }
+}
+
+.start-page {
+  text-align: center;
+
+  .fullname {
+    @extend .card;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 14px;
+
+    span {
+      font-size: 0.9em;
+    }
+
+    b {
+      font-size: 1.1em;
+    }
+  }
+
+  .quiz-card {
+    margin: 20px auto;
+    max-width: 300px;
+    @extend .card;
+    text-align: center;
+
+    .title {
+      margin-top: 10px;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+
+    .summary {
+      padding: 10px 0;
+      color: rgba($accent, 0.7);
+      font-size: 0.9em;
+    }
+
+  }
+
+
+}
+
+.question-page {
+
+  .progressbar {
+    background: #D8EDFF;
+    width: 100%;
+    height: 10px;
+
+    .fill {
+      height: 100%;
+      background: $--color-secondary;
+      background: linear-gradient(90deg, #41D1E7 0%, $--color-secondary 100%);
+    }
+  }
+
+  .question-header {
+    font-size: 14px;
+    color: $--color-accent;
+
+    .counter {
+      font-size: 1.5em;
+      border-bottom: 4px dotted $--color-accent;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+
+      .amount {
+        font-weight: 400;
+        font-size: 0.6em;
+
+        b {
+          font-size: 1.6em;
+        }
+      }
+    }
+
+    .title {
+      font-size: $--color-accent;
+      font-weight: 500;
+      font-size: 1.5em;
+    }
+  }
+
+  .question-content {
+    font-size: 14px;
+
+    .quiz-list {
+      margin-top: 50px;
+
+      .q-item {
+        margin-bottom: 25px;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 2rem;
+        border: 3px solid $--color-accent;
+        transition: 0.15s;
+
+        .text {
+          font-size: 1em;
+          font-weight: 400;
+        }
+
+        .icon {
+          padding-top: 4px;
+
+          i {
+            color: $--color-border;
+            font-size: 1.4em;
+          }
+        }
+
+        &.selected {
+          background: rgba($--color-secondary, 0.2);
+
+          .text {
+            font-weight: 600;
+          }
+
+          .icon i {
+            color: $--color-secondary;
+          }
+        }
+
+
+        &:hover {
+          transition: 0.15s;
+          cursor: pointer;
+          background: rgba($--color-secondary, 0.4);
+        }
+      }
+    }
+
+    .quiz-descriptive {
+      textarea{
+        padding: 20px;
+        border-radius: 2rem;
+        border: 3px solid $--color-accent;
+        transition: 0.15s;
+        margin: 40px 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .question-nav {
+    margin-top: 60px;
+    text-align: center;
+
+    .btn {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.result-page {
+  .message {
+    text-align: center;
+
+    .title {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .icon {
+      padding: 10px;
+      font-size: 4em;
+      color: $--color-secondary;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      padding: 10px;
+      color: $--color-subtitle;
+    }
+  }
+
+  .stats {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .item {
+      min-height: 120px;
+      margin: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 1rem;
+      @extend .box-shadow;
+      padding: 10px;
+      border-right: 5px solid #efefef;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .icon {
+        font-size: 2em;
+        width: 30%;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .text {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: right;
+        font-size: 14px;
+
+        .caption {
+          font-size: 0.9em;
+        }
+
+        .value {
+          margin-top: 10px;
+          font-size: 1.5em;
+          font-weight: bold;
+          background: #efefef;
+          border-radius: 50%;
+          padding: 5px;
+          text-align: center;
+          min-width: 40px;
+        }
+      }
+
+      &.style-primary {
+        color: $--color-primary;
+        border-color: $--color-primary;
+
+        .value {
+          color: #fff;
+          background: $--color-primary;
+        }
+      }
+
+      &.style-secondary {
+        color: $--color-secondary;
+        border-color: $--color-secondary;
+
+        .value {
+          color: #fff;
+          background: $--color-secondary;
+        }
+      }
+
+      &.style-grey {
+        color: #999;
+        border-color: #999;
+
+        .value {
+          color: #fff;
+          background: #999;
+        }
+      }
+
+      &.style-green {
+        color: $--color-green;
+        border-color: $--color-green;
+
+        .value {
+          color: #fff;
+          background: $--color-green;
+        }
+      }
+
+      &.style-red {
+        color: $--color-red;
+        border-color: $--color-red;
+
+        .value {
+          color: #fff;
+          background: $--color-red;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 5% 20%;
+  }
+
+  .result-page .stats {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 5% !important;
+  }
+  .btn {
+    margin: 5px 10px;
+    min-width: 110px !important;
+  }
+}

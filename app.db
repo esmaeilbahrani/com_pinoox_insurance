@@ -1,0 +1,65 @@
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table user
+-- ----------------------------
+DROP TABLE IF EXISTS `com_pinoox_insurance_user`;
+CREATE TABLE `com_pinoox_insurance_user`  (
+  `user_id` int(0) UNSIGNED NOT NULL,
+  `group_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `setting_data` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table category
+-- ----------------------------
+DROP TABLE IF EXISTS `com_pinoox_insurance_category`;
+CREATE TABLE `com_pinoox_insurance_category`  (
+  `cat_id` int(0) NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cat_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `parent_id` int(0) NULL DEFAULT NULL,
+  `image_id` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`cat_id`) USING BTREE,
+  INDEX `com_pinoox_insurance_category_parent_id`(`parent_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table statistic
+-- ----------------------------
+DROP TABLE IF EXISTS `com_pinoox_insurance_statistic`;
+CREATE TABLE `com_pinoox_insurance_statistic`  (
+  `stat_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `visitors` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '1',
+  `visits` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '0',
+  `insert_date` date NULL DEFAULT NULL,
+  `json_data` text CHARACTER SET utf8 COLLATE utf8_bin NULL,
+  PRIMARY KEY (`stat_id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table tag
+-- ----------------------------
+DROP TABLE IF EXISTS `com_pinoox_insurance_tag`;
+CREATE TABLE `com_pinoox_insurance_tag`  (
+  `tag_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tag_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`tag_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Foreign keys
+-- ----------------------------
+
+ALTER TABLE `com_pinoox_insurance_user`
+    ADD CONSTRAINT `com_pinoox_insurance_user_user_id` FOREIGN KEY (`user_id`) REFERENCES `pincore_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `com_pinoox_insurance_category`
+    ADD CONSTRAINT `com_pinoox_insurance_category_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `com_pinoox_insurance_category` (`cat_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `com_pinoox_insurance_category`
+    ADD CONSTRAINT `com_pinoox_insurance_category_image_id` FOREIGN KEY (`image_id`) REFERENCES `pincore_file` (`file_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+SET FOREIGN_KEY_CHECKS = 1;

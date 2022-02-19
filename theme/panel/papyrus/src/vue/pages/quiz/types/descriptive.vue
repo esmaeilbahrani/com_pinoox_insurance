@@ -1,0 +1,34 @@
+<template>
+  <row :gutter="12" :columns="2">
+    <column :sm="2" :md="2">
+      <div class="input-wrapper">
+        <label class="input-label">{{ LANG.quiz.answer }}</label>
+        <div class="input-group">
+                  <textarea class="input"
+                            v-model="value.answer" :placeholder="LANG.quiz.enter_answer"></textarea>
+        </div>
+      </div>
+    </column>
+  </row>
+</template>
+
+<script>
+import InputMultiple from "../../../components/input-multiple.vue";
+
+export default {
+  components: {InputMultiple},
+  props: {
+    value: {
+      default: {},
+    },
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    setAnswer(answer) {
+      this.value.answer = answer;
+    }
+  }
+}
+</script>

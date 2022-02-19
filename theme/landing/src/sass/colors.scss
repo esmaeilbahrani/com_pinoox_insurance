@@ -1,0 +1,74 @@
+$--color-title: #002448;
+$--color-subtitle: #898989;
+$--color-primary: #002448;
+$--color-secondary: #258AEC;
+$--color-accent: #1F486A;
+$--color-border: #e7e7e7;
+$--color-box-shadow: rgba(149, 175, 227, 0.25);
+$--color-green : #5bdea4;
+$--color-red : #e9448d;
+
+//pretty checkbox
+$pretty--color-primary: $--color-secondary;
+
+.fa-instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.fa-facebook, .fa-facebook-square {
+  color: #3b5998;
+}
+
+.fa-twitter, .fa-twitter-square {
+  color: #00aced;
+}
+
+.fa-google-plus, .fa-google-plus-square {
+  color: #dd4b39;
+}
+
+.fa-youtube, .fa-youtube-play, .fa-youtube-square {
+  color: #bb0000;
+}
+
+.fa-tumblr, .fa-tumblr-square {
+  color: #32506d;
+}
+
+.fa-vine {
+  color: #00bf8f;
+}
+
+.fa-flickr {
+  color: #ff0084;
+}
+
+.fa-vimeo-square {
+  color: #aad450;
+}
+
+.fa-pinterest, .fa-pinterest-square {
+  color: #cb2027;
+}
+
+.fa-linkedin, .fa-linkedin-square {
+  color: #007bb6;
+}
+
+.fa-spotify {
+  color: #1ed760;
+}
+
+.fa-whatsapp {
+  color: #128C7E;
+}
+.fa-whatsapp {
+  color: #128C7E;
+}
+.fa-telegram {
+  color: #2FA4D6;
+}
